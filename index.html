@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header__logo"></div>
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar">
+        <div class="profile__profile-info">
+          <div class="profile__owner">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <p class="profile__occupation">Исследователь океана</p>
+          </div>
+          <button class="profile__edit-button">
+            <img src="./images/edit.svg" alt="Кнопка редактирования" class="profile__edit-icon">
+          </button>
+        </div>
+        <button class="profile__add-button">
+          <img src="./images/plus.svg" alt="Кнопка добавления" class="profile__plus">
+        </button>
+      </section>
+      <section class="location">
+        <div class="location__item">
+          <img src="./images/locations/baikal.jpg" alt="Байкал" class="location__image">
+          <div class="location__descrip">
+            <h2 class="location__name">Зимний Байкал</h2>
+            <button class="location__like"></button>
+          </div>
+        </div>
+        <div class="location__item">
+          <img src="./images/locations/dombay.jpg" alt="Домбай" class="location__image">
+          <div class="location__descrip">
+            <h2 class="location__name">Домбай</h2>
+            <button class="location__like"></button>
+          </div>
+        </div>
+        <div class="location__item">
+          <img src="./images/locations/elbrus.jpg" alt="Эльбрус" class="location__image">
+          <div class="location__descrip">
+            <h2 class="location__name">Эльбрус</h2>
+            <button class="location__like"></button>
+          </div>
+        </div>
+        <div class="location__item">
+          <img src="./images/locations/karachaevsk.jpg" alt="Карачаевск" class="location__image">
+          <div class="location__descrip">
+            <h2 class="location__name">Карачаевск</h2>
+            <button class="location__like"></button>
+          </div>
+        </div>
+        <div class="location__item">
+          <img src="./images/locations/kareliya.jpg" alt="Карелия" class="location__image">
+          <div class="location__descrip">
+            <h2 class="location__name">Карелия</h2>
+            <button class="location__like"></button>
+          </div>
+        </div>
+        <div class="location__item">
+          <img src="./images/locations/kurshskaya.jpg" alt="Куршская коса" class="location__image">
+          <div class="location__descrip">
+            <h2 class="location__name">Куршская коса</h2>
+            <button class="location__like"></button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <span class="footer__copyright">© 2023 Mesto Russia</span>
+    </footer>
+    <section class="popup">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form">
+          <fieldset class="popup__content">
+            <input type="text" placeholder class="popup__name">
+            <input type="text"  placeholder class="popup__occupation">
+            <button type="submit" class="popup__submit-button">Сохранить</button>
+          </fieldset>
+        </form>
+        <button type="button" class="popup__close-button">
+          <img src="./images/CloseIcon.svg" alt="Кнопка закрытия" class="popup__close-icon">
+        </button>
+      </div>
+    </section>
+  </div>
+  <script type="module" src="./pages/index.js"></script>
+</body>
+</html>

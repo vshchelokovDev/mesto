@@ -1,0 +1,21 @@
+.popup__occupation {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-self: center;
+  width: calc(100% - 72px);
+  margin: 30px auto 0;
+  padding: 0;
+  padding-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: 'Inter';
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@media screen and (max-width: 500px) {
+  .popup__occupation {
+    width: calc(100% - 44px);
+    }
+  }

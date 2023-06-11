@@ -1,0 +1,13 @@
+.profile__owner {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+}
+
+@media (max-width: 425px) {
+  .profile__owner {
+    gap: 8px;
+    align-self: auto;
+  }
+}

@@ -1,0 +1,8 @@
+.location__descrip {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 246px;
+  margin: 25px auto 31px;
+}
