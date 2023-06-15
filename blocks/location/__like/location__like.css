@@ -3,9 +3,10 @@
   height: 19px;
   width: 22px;
   border: none;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0);
   background-repeat: no-repeat;
   padding: 0;
+  cursor: pointer;
 }
 
 .location__like:hover {

@@ -10,9 +10,10 @@
   justify-content: center;
   margin-left: auto;
   padding: 0;
+  cursor: pointer;
 }
 
-@media (min-width: 768px) and  (max-width: 1070px) {
+@media (max-width: 1070px) {
   .profile__add-button {
     width: 581px;
     margin: 36px auto 0;
@@ -22,7 +23,6 @@
 @media (max-width: 767px) {
   .profile__add-button {
     width: 282px;
-    margin: 36px auto 0;
   }
 }
 

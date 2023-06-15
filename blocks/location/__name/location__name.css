@@ -1,9 +1,8 @@
 .location__name {
-  font-family: 'Inter';
+  font-family: 'Inter', 'Arial', sans-serif;
   font-weight: 900;
   font-size: 24px;
   height: 23px;
-  max-width: 210px;
   line-height: 22px;
   text-overflow: ellipsis;
   white-space: nowrap;

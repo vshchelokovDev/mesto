@@ -1,10 +1,9 @@
 .header {
-  max-height: 74px;
   max-width: 880px;
   width: calc(100% - 400px);
   margin: 0 auto;
   padding: 45px 0 41px;
-  border-bottom: 1px #545454 solid;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
 @media (min-width: 769px) and  (max-width: 1024px) {

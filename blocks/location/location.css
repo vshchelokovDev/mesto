@@ -13,7 +13,6 @@
     grid-template-columns: repeat(2, 282px);
     grid-template-rows: repeat(3, 361px);
     max-width: 581px;
-    margin: 36px auto 0;
   }
 }
 
