@@ -35,6 +35,7 @@
             <h2 class="location__name">Зимний Байкал</h2>
             <button class="location__like" type="button" aria-label="Лайк"></button>
           </div>
+          <button class="location__trash" type="button" aria-label="Удалить"></button>
         </article>
         <article class="location__item">
           <img src="./images/locations/dombay.jpg" alt="Домбай" class="location__image">
@@ -42,6 +43,7 @@
             <h2 class="location__name">Домбай</h2>
             <button class="location__like" type="button" aria-label="Лайк"></button>
           </div>
+          <button class="location__trash" type="button" aria-label="Удалить"></button>
         </article>
         <article class="location__item">
           <img src="./images/locations/elbrus.jpg" alt="Эльбрус" class="location__image">
@@ -49,6 +51,7 @@
             <h2 class="location__name">Эльбрус</h2>
             <button class="location__like" type="button" aria-label="Лайк"></button>
           </div>
+          <button class="location__trash" type="button" aria-label="Удалить"></button>
         </article>
         <article class="location__item">
           <img src="./images/locations/karachaevsk.jpg" alt="Карачаевск" class="location__image">
@@ -56,6 +59,7 @@
             <h2 class="location__name">Карачаевск</h2>
             <button class="location__like" type="button" aria-label="Лайк"></button>
           </div>
+          <button class="location__trash" type="button" aria-label="Удалить"></button>
         </article>
         <article class="location__item">
           <img src="./images/locations/kareliya.jpg" alt="Карелия" class="location__image">
@@ -63,6 +67,7 @@
             <h2 class="location__name">Карелия</h2>
             <button class="location__like" type="button" aria-label="Лайк"></button>
           </div>
+          <button class="location__trash" type="button" aria-label="Удалить"></button>
         </article>
         <article class="location__item">
           <img src="./images/locations/kurshskaya.jpg" alt="Куршская коса" class="location__image">
@@ -70,13 +75,14 @@
             <h2 class="location__name">Куршская коса</h2>
             <button class="location__like" type="button" aria-label="Лайк"></button>
           </div>
+          <button class="location__trash" type="button" aria-label="Удалить"></button> 
         </article>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">© 2023 Mesto Russia</p>
     </footer>
-    <section class="popup">
+    <section class="popup" id="popup-edit">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" name="Редактирование профиля">
@@ -86,7 +92,22 @@
             <button type="submit" class="popup__submit-button">Сохранить</button>
           </fieldset>
         </form>
-        <button type="button" class="popup__close-button">
+        <button type="button" class="popup__close-button" id="popup-edit-close-button">
+          <img src="./images/CloseIcon.svg" alt="Кнопка закрытия" class="popup__close-icon" aria-label="Закрыть">
+        </button>
+      </div>
+    </section>
+    <section class="popup" id="popup-add">
+      <div class="popup__container">
+        <h2 class="popup__title">Новое месте</h2>
+        <form class="popup__form" name="Добавление места">
+          <fieldset class="popup__content">
+            <input type="text" placeholder="Название" class="popup__input" name="Имя" id="name">
+            <input type="text"  placeholder="Ссылка на картинку" class="popup__input" name="link" id="occupation">
+            <button type="submit" class="popup__submit-button">Создать</button>
+          </fieldset>
+        </form>
+        <button type="button" class="popup__close-button" id="popup-add-close-button">
           <img src="./images/CloseIcon.svg" alt="Кнопка закрытия" class="popup__close-icon" aria-label="Закрыть">
         </button>
       </div>
