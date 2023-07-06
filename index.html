@@ -28,56 +28,7 @@
           <img src="./images/plus.svg" alt="Кнопка добавления" class="profile__plus" aria-label="Добавить">
         </button>
       </section>
-      <section class="location">
-        <article class="location__item">
-          <img src="./images/locations/baikal.jpg" alt="Байкал" class="location__image">
-          <div class="location__descrip">
-            <h2 class="location__name">Зимний Байкал</h2>
-            <button class="location__like" type="button" aria-label="Лайк"></button>
-          </div>
-          <button class="location__trash" type="button" aria-label="Удалить"></button>
-        </article>
-        <article class="location__item">
-          <img src="./images/locations/dombay.jpg" alt="Домбай" class="location__image">
-          <div class="location__descrip">
-            <h2 class="location__name">Домбай</h2>
-            <button class="location__like" type="button" aria-label="Лайк"></button>
-          </div>
-          <button class="location__trash" type="button" aria-label="Удалить"></button>
-        </article>
-        <article class="location__item">
-          <img src="./images/locations/elbrus.jpg" alt="Эльбрус" class="location__image">
-          <div class="location__descrip">
-            <h2 class="location__name">Эльбрус</h2>
-            <button class="location__like" type="button" aria-label="Лайк"></button>
-          </div>
-          <button class="location__trash" type="button" aria-label="Удалить"></button>
-        </article>
-        <article class="location__item">
-          <img src="./images/locations/karachaevsk.jpg" alt="Карачаевск" class="location__image">
-          <div class="location__descrip">
-            <h2 class="location__name">Карачаевск</h2>
-            <button class="location__like" type="button" aria-label="Лайк"></button>
-          </div>
-          <button class="location__trash" type="button" aria-label="Удалить"></button>
-        </article>
-        <article class="location__item">
-          <img src="./images/locations/kareliya.jpg" alt="Карелия" class="location__image">
-          <div class="location__descrip">
-            <h2 class="location__name">Карелия</h2>
-            <button class="location__like" type="button" aria-label="Лайк"></button>
-          </div>
-          <button class="location__trash" type="button" aria-label="Удалить"></button>
-        </article>
-        <article class="location__item">
-          <img src="./images/locations/kurshskaya.jpg" alt="Куршская коса" class="location__image">
-          <div class="location__descrip">
-            <h2 class="location__name">Куршская коса</h2>
-            <button class="location__like" type="button" aria-label="Лайк"></button>
-          </div>
-          <button class="location__trash" type="button" aria-label="Удалить"></button> 
-        </article>
-      </section>
+      <section class="location"></section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">© 2023 Mesto Russia</p>
@@ -100,10 +51,10 @@
     <section class="popup" id="popup-add">
       <div class="popup__container">
         <h2 class="popup__title">Новое месте</h2>
-        <form class="popup__form" name="Добавление места">
+        <form class="popup__form" name="Добавление места" id="formAdd">
           <fieldset class="popup__content">
-            <input type="text" placeholder="Название" class="popup__input" name="Имя" id="name">
-            <input type="text"  placeholder="Ссылка на картинку" class="popup__input" name="link" id="occupation">
+            <input type="text" placeholder="Название" class="popup__input" name="Имя" id="newName">
+            <input type="text"  placeholder="Ссылка на картинку" class="popup__input" name="link" id="newImageLink">
             <button type="submit" class="popup__submit-button">Создать</button>
           </fieldset>
         </form>
@@ -113,6 +64,16 @@
       </div>
     </section>
   </div>
+  <template class="location-template">
+    <article class="location__item">
+      <img src="" alt="" class="location__image">
+      <div class="location__descrip">
+        <h2 class="location__name"></h2>
+        <button class="location__like" type="button" aria-label="Лайк"></button>
+      </div>
+      <button class="location__trash" type="button" aria-label="Удалить"></button>
+    </article>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>

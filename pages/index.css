@@ -18,6 +18,7 @@
 @import url(../blocks/location/__descrip/location__descrip.css);
 @import url(../blocks/location/__name/location__name.css);
 @import url(../blocks/location/__like/location__like.css);
+@import url(../blocks/location/__like/__like_active/location__like-active.css);
 @import url(../blocks/location/__trash/location__trash.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
