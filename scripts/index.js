@@ -2,9 +2,13 @@ const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
 const popupEdit = document.getElementById('popup-edit');
 const popupAdd = document.getElementById('popup-add');
+const popupFullscreen = document.getElementById('popup-fullscreen')
+const fullscreenImageElement = popupFullscreen.querySelector('.popup__image')
 
 const closeButtonEditPopup = document.getElementById('popup-edit-close-button')
 const closeButtonAddPopup = document.getElementById('popup-add-close-button')
+const closeButtonFullscreenPopup = document.getElementById('popup-full-image-close-button');
+
 const profileName = document.querySelector('.profile__name');
 const popupName = document.querySelector('#name');
 const profileOccupation = document.querySelector('.profile__occupation');
@@ -15,6 +19,7 @@ const templateElement = document.querySelector('.location-template');
 const formAddElement = document.getElementById('formAdd');
 const inputNewNameElement = document.getElementById('newName');
 const inputNewLinkElement = document.getElementById('newImageLink');
+
 
 const initialCards = [
   { name: 'Архыз', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'},
@@ -43,6 +48,10 @@ function closeAddPopupButtonClick() {
   popupAdd.classList.toggle('popup_opened');
 }
 
+function closeFullscreenPopupButtonClick() {
+  popupFullscreen.classList.toggle('popup_opened');
+}
+
 function handleEditFormSubmit (evt) {
     evt.preventDefault();
     profileName.textContent = popupName.value;
@@ -60,7 +69,6 @@ const createCard = ({ name, link }) => {
   cardElement.querySelector('.location__name').textContent = name;
 
   const deleteButton = cardElement.querySelector(".location__trash");
-
   deleteButton.addEventListener('click', () => {
     cardElement.remove();
   });
@@ -68,6 +76,15 @@ const createCard = ({ name, link }) => {
   const likeButton = cardElement.querySelector('.location__like');
   likeButton.addEventListener('click', () => {
     likeButton.classList.toggle('location__like-active');
+  });
+  
+  const fullscreenPopupTitle = popupFullscreen.querySelector('.popup__title_h3');
+  imageElement.addEventListener('click', () => {
+    fullscreenImageElement.src = link;
+    fullscreenImageElement.alt = name;
+    fullscreenPopupTitle.textContent = name;
+
+    popupFullscreen.classList.toggle('popup_opened');
   });
 
   return cardElement;
@@ -89,11 +106,12 @@ const handleAddFormSubmit = (e) => {
   inputNewLinkElement.value = '';
   closeAddPopupButtonClick();
 
-} 
+}
 
 formEditElement.addEventListener('submit', handleEditFormSubmit); 
 editButton.addEventListener('click', editButtonClick);
 addButton.addEventListener('click', addButtonClick);
 closeButtonEditPopup.addEventListener('click', closeEditPopupButtonClick);
 closeButtonAddPopup.addEventListener('click', closeAddPopupButtonClick);
+closeButtonFullscreenPopup.addEventListener('click', closeFullscreenPopupButtonClick);
 formAddElement.addEventListener('submit', handleAddFormSubmit);
