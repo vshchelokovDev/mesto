@@ -36,14 +36,14 @@
     <section class="popup popup_type_profile">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="Редактирование профиля">
+        <form class="popup__form popup__form_edit" name="Редактирование профиля">
           <fieldset class="popup__content">
             <input type="text" placeholder="Ваше имя" class="popup__input" name="Имя" id="name">
             <input type="text"  placeholder="Ваша профессия" class="popup__input" name="Профессия" id="occupation">
             <button type="submit" class="popup__submit-button">Сохранить</button>
           </fieldset>
         </form>
-        <button type="button" class="popup__close-button" id="popup-edit-close-button">
+        <button type="button" class="popup__close-button popup__close-button_edit">
           <img src="./images/CloseIcon.svg" alt="Кнопка закрытия" class="popup__close-icon" aria-label="Закрыть">
         </button>
       </div>
@@ -51,14 +51,14 @@
     <section class="popup popup_type_card-add">
       <div class="popup__container">
         <h2 class="popup__title">Новое месте</h2>
-        <form class="popup__form" name="Добавление места" id="formAdd">
+        <form class="popup__form popup__form_add" name="Добавление места">
           <fieldset class="popup__content">
-            <input type="text" placeholder="Название" class="popup__input" name="Имя" id="newName">
-            <input type="text"  placeholder="Ссылка на картинку" class="popup__input" name="link" id="newImageLink">
+            <input type="text" placeholder="Название" class="popup__input popup__input_new-name" name="Имя">
+            <input type="text"  placeholder="Ссылка на картинку" class="popup__input popup__input_new-link" name="link">
             <button type="submit" class="popup__submit-button">Создать</button>
           </fieldset>
         </form>
-        <button type="button" class="popup__close-button " id="popup-add-close-button">
+        <button type="button" class="popup__close-button popup__close-button_add">
           <img src="./images/CloseIcon.svg" alt="Кнопка закрытия" class="popup__close-icon" aria-label="Закрыть">
         </button>
       </div>
@@ -66,7 +66,7 @@
     <section class="popup popup_type_picture">
       <div class="popup__container-image">
         <img src="#" alt="" class="popup__image">
-        <button type="button" class="popup__close-button" id="popup-full-image-close-button">
+        <button type="button" class="popup__close-button popup__close-button_picture">
           <img src="./images/CloseIcon.svg" alt="Кнопка закрытия" class="popup__close-icon" aria-label="Закрыть">
         </button>
         <h3 class="popup__title popup__title_h3">Место</h3>

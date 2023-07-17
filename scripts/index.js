@@ -5,20 +5,20 @@ const popupAdd = document.querySelector('.popup_type_card-add');
 const popupFullscreen = document.querySelector('.popup_type_picture')
 const fullscreenImageElement = popupFullscreen.querySelector('.popup__image')
 
-const closeButtonEditPopup = document.getElementById('popup-edit-close-button')
-const closeButtonAddPopup = document.getElementById('popup-add-close-button')
-const closeButtonFullscreenPopup = document.getElementById('popup-full-image-close-button');
+const closeButtonEditPopup = document.querySelector('.popup__close-button_edit')
+const closeButtonAddPopup = document.querySelector('.popup__close-button_add')
+const closeButtonFullscreenPopup = document.querySelector('.popup__close-button_picture');
 
 const profileName = document.querySelector('.profile__name');
 const popupName = document.querySelector('#name');
 const profileOccupation = document.querySelector('.profile__occupation');
 const popupOccupation = document.querySelector ('#occupation');
-const formEditElement = document.querySelector('.popup__form');
+const formEditElement = document.querySelector('.popup__form_edit');
 const locationBlock = document.querySelector('.location');
 const templateElement = document.querySelector('.location-template');
-const formAddElement = document.getElementById('formAdd');
-const inputNewNameElement = document.getElementById('newName');
-const inputNewLinkElement = document.getElementById('newImageLink');
+const formAddElement = document.querySelector('.popup__form_add');
+const inputNewNameElement = document.querySelector('.popup__input_new-name');
+const inputNewLinkElement = document.querySelector('.popup__input_new-link');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -76,7 +76,6 @@ const handleAddFormSubmit = (e) => {
   let name = inputNewNameElement.value;
   let link = inputNewLinkElement.value;
   const cardElement = createCard({ name, link });
-  // initialCards.unshift(cardElement);
   locationBlock.prepend(cardElement);
   e.target.reset();
   closePopup(popupAdd);
