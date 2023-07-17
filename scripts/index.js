@@ -1,8 +1,8 @@
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
-const popupEdit = document.getElementById('popup-edit');
-const popupAdd = document.getElementById('popup-add');
-const popupFullscreen = document.getElementById('popup-fullscreen')
+const popupEdit = document.querySelector('.popup_type_profile');
+const popupAdd = document.querySelector('.popup_type_card-add');
+const popupFullscreen = document.querySelector('.popup_type_picture')
 const fullscreenImageElement = popupFullscreen.querySelector('.popup__image')
 
 const closeButtonEditPopup = document.getElementById('popup-edit-close-button')
@@ -20,36 +20,12 @@ const formAddElement = document.getElementById('formAdd');
 const inputNewNameElement = document.getElementById('newName');
 const inputNewLinkElement = document.getElementById('newImageLink');
 
-
-const initialCards = [
-  { name: 'Архыз', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'},
-  { name: 'Челябинская область', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'},
-  { name: 'Иваново', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'},
-  { name: 'Камчатка', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'},
-  { name: 'Холмогорский район', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'},
-  { name: 'Байкал', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'}
-];
-
-function editButtonClick() {
-  popupEdit.classList.toggle('popup_opened');
-  popupName.value = profileName.textContent;
-  popupOccupation.value = profileOccupation.textContent;
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
 }
 
-function addButtonClick() {
-  popupAdd.classList.toggle('popup_opened');
-}
-
-function closeEditPopupButtonClick() {
-  popupEdit.classList.toggle('popup_opened');
-}
-
-function closeAddPopupButtonClick() {
-  popupAdd.classList.toggle('popup_opened');
-}
-
-function closeFullscreenPopupButtonClick() {
-  popupFullscreen.classList.toggle('popup_opened');
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
 
 function handleEditFormSubmit (evt) {
@@ -57,7 +33,7 @@ function handleEditFormSubmit (evt) {
     profileName.textContent = popupName.value;
     profileOccupation.textContent = popupOccupation.value;
 
-    closeEditPopupButtonClick();
+    closePopup(popupEdit);
 }
 
 const createCard = ({ name, link }) => {
@@ -100,18 +76,32 @@ const handleAddFormSubmit = (e) => {
   let name = inputNewNameElement.value;
   let link = inputNewLinkElement.value;
   const cardElement = createCard({ name, link });
-  initialCards.unshift(cardElement);
+  // initialCards.unshift(cardElement);
   locationBlock.prepend(cardElement);
-  inputNewNameElement.value = '';
-  inputNewLinkElement.value = '';
-  closeAddPopupButtonClick();
+  e.target.reset();
+  closePopup(popupAdd);
 
 }
 
-formEditElement.addEventListener('submit', handleEditFormSubmit); 
-editButton.addEventListener('click', editButtonClick);
-addButton.addEventListener('click', addButtonClick);
-closeButtonEditPopup.addEventListener('click', closeEditPopupButtonClick);
-closeButtonAddPopup.addEventListener('click', closeAddPopupButtonClick);
-closeButtonFullscreenPopup.addEventListener('click', closeFullscreenPopupButtonClick);
+editButton.addEventListener('click', () => {
+  openPopup(popupEdit)
+  popupName.value = profileName.textContent;
+  popupOccupation.value = profileOccupation.textContent;
+});
+
+addButton.addEventListener('click', () => {
+  openPopup(popupAdd);
+});
+
+closeButtonEditPopup.addEventListener('click', () => {
+  closePopup(popupEdit);
+});
+closeButtonAddPopup.addEventListener('click', () => {
+  closePopup(popupAdd);
+});
+closeButtonFullscreenPopup.addEventListener('click', () => {
+  closePopup(popupFullscreen)
+});
+
 formAddElement.addEventListener('submit', handleAddFormSubmit);
+formEditElement.addEventListener('submit', handleEditFormSubmit); 
