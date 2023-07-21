@@ -22,10 +22,27 @@ const inputNewLinkElement = document.querySelector('.popup__input_new-link');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+  popup.addEventListener('click', closePopupOverlay);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
+  popup.removeEventListener('click', closePopupOverlay);
+}
+
+function closePopupEsc (evt) {
+  if (evt.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened);
+  }
+}
+
+function closePopupOverlay(evt) {
+  if (evt.currentTarget === evt.target) {
+    closePopup(evt.currentTarget);
+  }
 }
 
 function handleEditFormSubmit (evt) {
@@ -61,6 +78,8 @@ const createCard = ({ name, link }) => {
     fullscreenPopupTitle.textContent = name;
 
     popupFullscreen.classList.toggle('popup_opened');
+    document.addEventListener('keydown', closePopupEsc);
+    popupFullscreen.addEventListener('click', closePopupOverlay);
   });
 
   return cardElement;
