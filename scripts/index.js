@@ -10,9 +10,9 @@ const closeButtonAddPopup = document.querySelector('.popup__close-button_add')
 const closeButtonFullscreenPopup = document.querySelector('.popup__close-button_picture');
 
 const profileName = document.querySelector('.profile__name');
-const popupName = document.querySelector('#name');
+const popupName = document.querySelector('.popup__input_edit_profile-name');
 const profileOccupation = document.querySelector('.profile__occupation');
-const popupOccupation = document.querySelector ('#occupation');
+const popupOccupation = document.querySelector ('.popup__input_edit_profile-occupation');
 const formEditElement = document.querySelector('.popup__form_edit');
 const locationBlock = document.querySelector('.location');
 const templateElement = document.querySelector('.location-template');
@@ -98,8 +98,7 @@ const handleAddFormSubmit = (e) => {
   locationBlock.prepend(cardElement);
   e.target.reset();
   closePopup(popupAdd);
-
-}
+};
 
 editButton.addEventListener('click', () => {
   openPopup(popupEdit)
