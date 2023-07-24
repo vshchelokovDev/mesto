@@ -5,6 +5,8 @@ const popupAdd = document.querySelector('.popup_type_card-add');
 const popupFullscreen = document.querySelector('.popup_type_picture')
 const fullscreenImageElement = popupFullscreen.querySelector('.popup__image')
 
+const submitButtonAddPopup = document.querySelector('.popup__button_submit-add');
+const submitButtonEditPopup = document.querySelector('.popup__button_submit-edit');
 const closeButtonEditPopup = document.querySelector('.popup__close-button_edit')
 const closeButtonAddPopup = document.querySelector('.popup__close-button_add')
 const closeButtonFullscreenPopup = document.querySelector('.popup__close-button_picture');
@@ -49,7 +51,7 @@ function handleEditFormSubmit (evt) {
     evt.preventDefault();
     profileName.textContent = popupName.value;
     profileOccupation.textContent = popupOccupation.value;
-
+    disableButton(submitButtonEditPopup, SETTINGS);
     closePopup(popupEdit);
 }
 
@@ -92,11 +94,12 @@ const createCard = ({ name, link }) => {
 
 const handleAddFormSubmit = (e) => {
   e.preventDefault();
-  let name = inputNewNameElement.value;
-  let link = inputNewLinkElement.value;
+  const name = inputNewNameElement.value;
+  const link = inputNewLinkElement.value;
   const cardElement = createCard({ name, link });
   locationBlock.prepend(cardElement);
   e.target.reset();
+  disableButton(submitButtonAddPopup, SETTINGS);
   closePopup(popupAdd);
 };
 

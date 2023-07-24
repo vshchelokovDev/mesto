@@ -1,18 +1,9 @@
-const settings = ({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
-});
-
-const disabledButton = (button, setting) => {
+const disableButton = (button, setting) => {
   button.classList.add(setting.inactiveButtonClass);
   button.setAttribute('disabled', true);
 };
 
-const enabledButton = (button, setting) => {
+const enableButton = (button, setting) => {
   button.classList.remove(setting.inactiveButtonClass);
   button.removeAttribute('disabled', false);
 };
@@ -41,9 +32,9 @@ const checkInputValidity = (formElement, inputElement, setting) => {
 
 const toggleButtonState = (inputList, buttonElement, setting) => {
   if (hasInvalidInput(inputList)) {
-    disabledButton(buttonElement, setting);
+    disableButton(buttonElement, setting);
   } else {
-    enabledButton(buttonElement, setting);
+    enableButton(buttonElement, setting);
   }
 };
 
@@ -76,4 +67,4 @@ const enableValidation = (setting) => {
   });
 };
 
-enableValidation(settings)
+enableValidation(SETTINGS);

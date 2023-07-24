@@ -5,6 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
+  <script src="./scripts/constants.js" defer></script>
+  <script src="./scripts/validation.js" defer></script>
+  <script src="./scripts/index.js" defer></script>
   <title>Mesto</title>
 </head>
 <body>
@@ -42,7 +45,7 @@
             <span class="popup__input-error name-input-error"></span>
             <input type="text"  placeholder="Ваша профессия" id="occupation-input" class="popup__input popup__input_edit_profile-occupation" name="occupation" required minlength="2" maxlength="200">
             <span class="popup__input-error occupation-input-error"></span>
-            <button type="submit" class="popup__button">Сохранить</button>
+            <button type="submit" class="popup__button popup__button_submit-edit">Сохранить</button>
           </fieldset>
         </form>
         <button type="button" class="popup__close-button popup__close-button_edit">
@@ -59,7 +62,7 @@
             <span class="popup__input-error new-name-input-error"></span>
             <input type="url"  placeholder="Ссылка на картинку" id="link-input" class="popup__input popup__input_new-link" name="image-link" required>
             <span class="popup__input-error link-input-error"></span>
-            <button type="submit" class="popup__button">Создать</button>
+            <button type="submit" class="popup__button popup__button_submit-add">Создать</button>
           </fieldset>
         </form>
         <button type="button" class="popup__close-button popup__close-button_add">
@@ -87,8 +90,5 @@
       <button class="location__trash" type="button" aria-label="Удалить"></button>
     </article>
   </template>
-  <script src="./scripts/cards.js"></script>
-  <script src="./scripts/index.js"></script>
-  <script src="./scripts/validation.js"></script>
 </body>
 </html>
