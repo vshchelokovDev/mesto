@@ -1,3 +1,5 @@
+import Card from "./Card.js";
+
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
 const popupEdit = document.querySelector('.popup_type_profile');
@@ -55,49 +57,20 @@ function handleEditFormSubmit (evt) {
     closePopup(popupEdit);
 }
 
-const createCard = ({ name, link }) => {
-  const clone = templateElement.content.cloneNode(true);
-  const cardElement = clone.querySelector('.location__item');
-  const imageElement = cardElement.querySelector('.location__image');
-  imageElement.setAttribute('src', link);
-  imageElement.setAttribute('alt', name);
-  cardElement.querySelector('.location__name').textContent = name;
-
-  const deleteButton = cardElement.querySelector(".location__trash");
-  deleteButton.addEventListener('click', () => {
-    cardElement.remove();
-  });
-
-  const likeButton = cardElement.querySelector('.location__like');
-  likeButton.addEventListener('click', () => {
-    likeButton.classList.toggle('location__like-active');
-  });
-  
-  const fullscreenPopupTitle = popupFullscreen.querySelector('.popup__title_h3');
-  imageElement.addEventListener('click', () => {
-    fullscreenImageElement.src = link;
-    fullscreenImageElement.alt = name;
-    fullscreenPopupTitle.textContent = name;
-
-    popupFullscreen.classList.toggle('popup_opened');
-    document.addEventListener('keydown', closePopupEsc);
-    popupFullscreen.addEventListener('click', closePopupOverlay);
-  });
-
-  return cardElement;
+const renderCardElement = (item) => {
+  const card = new Card(item);
+  locationBlock.prepend(card.getView());
 }
 
  initialCards.forEach((item) => {
-  const cardElement = createCard(item);
-  locationBlock.append(cardElement);
+  renderCardElement(item);
 })
 
 const handleAddFormSubmit = (e) => {
   e.preventDefault();
   const name = inputNewNameElement.value;
   const link = inputNewLinkElement.value;
-  const cardElement = createCard({ name, link });
-  locationBlock.prepend(cardElement);
+  const cardElement = renderCardElement({ name, link });
   e.target.reset();
   disableButton(submitButtonAddPopup, SETTINGS);
   closePopup(popupAdd);
