@@ -1,5 +1,5 @@
 class Card {
-  constructor({ name, link }) {
+  constructor ({ name, link }) {
     this._name = name;
     this._link = link;
   }
@@ -10,16 +10,16 @@ class Card {
     const newTemplate = clone.querySelector('.location__item');
 
     return newTemplate;
-  }
+  };
 
   _setData() {
     const imageElement = this._newCard.querySelector('.location__image');
-    const name = this._newCard.querySelector('.location__name')
+    const name = this._newCard.querySelector('.location__name');
 
     name.textContent = this._name;
     imageElement.setAttribute('src', this._link);
     imageElement.setAttribute('alt', this._name);
-  }
+  };
 
   _setListeners() {
     const deleteButton = this._newCard.querySelector(".location__trash");
@@ -35,7 +35,7 @@ class Card {
     const imageElement = this._newCard.querySelector('.location__image');
     const popupFullscreen = document.querySelector('.popup_type_picture')
     const fullscreenPopupTitle = popupFullscreen.querySelector('.popup__title_h3');
-    const fullscreenImageElement = popupFullscreen.querySelector('.popup__image')
+    const fullscreenImageElement = popupFullscreen.querySelector('.popup__image');
     imageElement.addEventListener('click', () => {
       fullscreenImageElement.src = this._link;
       fullscreenImageElement.alt = this._name;
@@ -54,7 +54,7 @@ class Card {
     this._setListeners();
 
     return this._newCard;
-  }
+  };
 
 }
 
