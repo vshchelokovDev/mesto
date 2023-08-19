@@ -1,59 +1,55 @@
+import { openPopup } from "./index.js";
 class Card {
-  constructor ({ name, link }) {
+  constructor ({ name, link }, templateElement) {
     this._name = name;
     this._link = link;
+    this._templateElement = templateElement;
+    this._elementCard = document.querySelector(this._templateElement).content.querySelector('.location__item').cloneNode(true);
   }
 
-  _getTemplate() {
-    const templateElement = document.querySelector('.location-template');
-    const clone =  templateElement.content.cloneNode(true);
-    const newTemplate = clone.querySelector('.location__item');
-
-    return newTemplate;
-  };
-
   _setData() {
-    const imageElement = this._newCard.querySelector('.location__image');
-    const name = this._newCard.querySelector('.location__name');
+    const imageElement = this._elementCard.querySelector('.location__image');
+    const name = this._elementCard.querySelector('.location__name');
 
     name.textContent = this._name;
     imageElement.setAttribute('src', this._link);
     imageElement.setAttribute('alt', this._name);
   };
 
+  _handleOpenPopupImage() {
+    const popupFullscreen = document.querySelector('.popup_type_picture')
+    const fullscreenPopupTitle = popupFullscreen.querySelector('.popup__title_h3');
+    const fullscreenImageElement = popupFullscreen.querySelector('.popup__image');
+    fullscreenImageElement.src = this._link
+    fullscreenPopupTitle.textContent = this._alt
+    fullscreenPopupTitle.textContent = this._name
+    fullscreenImageElement.alt = this._alt
+    openPopup(popupFullscreen)
+  }
+
   _setListeners() {
-    const deleteButton = this._newCard.querySelector(".location__trash");
+    const deleteButton = this._elementCard.querySelector(".location__trash");
     deleteButton.addEventListener('click', () => {
-      this._newCard.remove();
+      this._elementCard.remove();
     });
 
-    const likeButton = this._newCard.querySelector('.location__like');
+    const likeButton = this._elementCard.querySelector('.location__like');
     likeButton.addEventListener('click', () => {
       likeButton.classList.toggle('location__like-active');
     });
 
-    const imageElement = this._newCard.querySelector('.location__image');
-    const popupFullscreen = document.querySelector('.popup_type_picture')
-    const fullscreenPopupTitle = popupFullscreen.querySelector('.popup__title_h3');
-    const fullscreenImageElement = popupFullscreen.querySelector('.popup__image');
+    const imageElement = this._elementCard.querySelector('.location__image');
     imageElement.addEventListener('click', () => {
-      fullscreenImageElement.src = this._link;
-      fullscreenImageElement.alt = this._name;
-      fullscreenPopupTitle.textContent = this._name;
-  
-      popupFullscreen.classList.toggle('popup_opened');
-      document.addEventListener('keydown', closePopupEsc);
-      popupFullscreen.addEventListener('click', closePopupOverlay);
+      this._handleOpenPopupImage()
     });
 
   }
 
   getView() {
-    this._newCard = this._getTemplate();
     this._setData();
     this._setListeners();
 
-    return this._newCard;
+    return this._elementCard;
   };
 
 }

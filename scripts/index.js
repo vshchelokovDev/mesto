@@ -47,26 +47,26 @@ function closePopupOverlay(evt) {
 };
 
 function handleEditFormSubmit (evt) {
-    evt.preventDefault();
-    profileName.textContent = popupName.value;
-    profileOccupation.textContent = popupOccupation.value;
-    closePopup(popupEdit);
+  evt.preventDefault();
+  profileName.textContent = popupName.value;
+  profileOccupation.textContent = popupOccupation.value;
+  closePopup(popupEdit);
 };
 
-const renderCardElement = (item) => {
-  const card = new Card(item);
+const renderCardElement = (name, link) => {
+  const card = new Card(name, link, '.location-template');
   locationBlock.prepend(card.getView());
 };
 
  initialCards.forEach((item) => {
-  renderCardElement(item);
+  renderCardElement(item, '.location-template');
 });
 
 const handleAddFormSubmit = (e) => {
   e.preventDefault();
   const name = inputNewNameElement.value;
   const link = inputNewLinkElement.value;
-  const cardElement = renderCardElement({ name, link });
+  const cardElement = renderCardElement({ name, link }, '.location-template');
   e.target.reset();
   validFormPlace.disableButton();
   closePopup(popupAdd);
@@ -99,3 +99,5 @@ const validFormProfile = new FormValidator(SETTINGS, formEditElement);
 validFormProfile.enableValidation();
 const validFormPlace = new FormValidator(SETTINGS, formAddElement);
 validFormPlace.enableValidation();
+
+export {openPopup}
